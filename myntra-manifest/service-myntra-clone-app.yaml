@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels: 
+    app.kubernetes.io/instance: myntra-clone-app
+  name: myntra-clone-app-service-resource
+  #namespace: apps101
+spec:
+  selector:
+    app: myntra
+  ports:
+  - protocol: TCP
+    port: 80                 # Expose port 80
+    targetPort: 3000
+  type: LoadBalancer

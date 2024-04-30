@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: 'myntra-clone-app'
+  namespace: argocd
+spec:
+  destination:
+    name: myntra-clone-app-destination
+    #namespace: apps101
+    server: 'https://kubernetes.default.svc'
+
+  source:
+    repoURL: 'https://github.com/typedot/myntra-clone-app-manifests.git'
+    targetRevision: HEAD
+    path: myntra-manifest
+
+  #sources: []
+
+  project: 'default'
+
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+
+    automated:
+      selfHeal: true
+      prune: true
