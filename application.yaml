@@ -2,11 +2,11 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: 'myntra-clone-app-02'
-  #namespace: argocd
+  namespace: argocd
 spec:
   destination:
     #name: myntra-clone-app-destination-02
-    #namespace: apps101
+    namespace: apps101
     server: 'https://kubernetes.default.svc'
 
   source:
